@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> AllaySky </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="/static/tech_design/dist/images/blue-alphabet-letter-a.png" type="image/x-icon"> 
+
+<link href="/static/tech_design/dist/css/bootstrap.css" rel="stylesheet">
+<link href="/static/tech_design/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/tech_design/dist/css/custom.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery.js"></script>
+ <script src="/static/tech_design/dist/js/bootstrap.min.js"></script>
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script>
+$(document).ready(function() { 
+
+});
+</script>
+</head>
+<body>
+	
+	<div id="header">
+		<div class="container">
+            <div id="heading" class=" pull-left">
+				<a href="/"><h1> ALLAYSKY</h1></a>
+            </div>
+		</div>
+	</div>
+    
+     <div class="container" >
+ 
+        <div id="content">
+            <div class="row">
+                
+                <div class="col-md-8">
+                 <center>   <h2> Your Result </h2></center>
+              
+                    <div class="well">
+                        <b> Attempted : </b> {{attempted}} <br />
+                        <b> Correct: </b> {{correct}} <br />
+                        <b>Percentage: </b> {{perce}} % <br />
+                    </div>
+                    <div id="res_area"> 
+                    {% for value in res_list %}
+                        <div id="disp_qarea"><b id="qmark"> Q. </b>   {{value.qadata.question}}  </div>
+
+                        <div class="pull-right">
+                              {% if value.result == "correct" %}
+                                <img src="/static/tech_design/dist/images/iStock_000018620194XSmall.jpg" height="70" width="70" />
+                                {% else %}
+                                <img src="/static/tech_design/dist/images/tango_process_stop_115912.jpg" height="70" width="70" />
+                            {% endif %}
+                        </div>
+                        <div id="disp_aarea"><b id="amarl"> A. </b> {{value.qadata.answers}}
+
+                                   <br />
+                                    <br />
+                                <b> Your Answer: </b> {{value.yans}}
+
+                                <br />
+                                 <b> Result: </b>  {{value.result}}
+
+                            <br />
+                            <br />
+                             </div>
+                    
+                            <hr id="ht">
+                    {% endfor %}
+                    </div>
+         
+                </div>
+
+            </div>
+            
+
+        </div>
+
+    </div>
+	<div id="footer">
+		<div class="container">
+            <hr>
+			<b> <center>&copy 2014 ALLAYSKY. All Rights Reserved</center> </b>
+			
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> AllaySky </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="/static/tech_design/dist/images/blue-alphabet-letter-a.png" type="image/x-icon"> 
+
+<link href="/static/tech_design/dist/css/bootstrap.css" rel="stylesheet">
+<link href="/static/tech_design/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/tech_design/dist/css/custom.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery.js"></script>
+ <script src="/static/tech_design/dist/js/bootstrap.min.js"></script>
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script>
+$(document).ready(function() { 
+
+    $("#next").click(function(){
+
+        var csrf_token = $('[name=csrfmiddlewaretoken]').val();
+        var questions = $('[name=question]').val();
+        var answers = $('[name=answers]').val();
+        var topic_id = $('[name=topic_id]').val();
+                //alert(inputs);
+                var steel = $.ajax({
+                    type: "POST",
+                    url: "/submit_qa/",
+                    data: {csrfmiddlewaretoken: csrf_token, questions:questions,answers:answers, topic_id:topic_id },
+                    dataType: "json",
+                    //async: false,
+                });
+
+            steel.done(function( msg ) {
+                var disp = msg + " Questions ";
+                $("#count_qa").html(disp);
+                $("#question").val('');
+                $("#answers").val('');
+            });
+
+    });
+});
+</script>
+</head>
+<body>
+	
+	<div id="header">
+		<div class="container">
+            <div id="heading" class=" pull-left">
+				<a href="/"><h1> ALLAYSKY</h1></a>
+            </div>
+		</div>
+	</div>
+
+    <div class="container" >
+        <div id="content">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-2">
+                <table class="table table-hover">
+                    <thead>
+                        <th> Topic </th>
+                        <th> Sub Topic </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{tpc.topic}} </td>
+                            <td> {% for sub in sub_topics %}  /  {{sub}}  {% endfor %}</td>
+                        </tr>
+                    </tbody>
+                                
+                </table>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="container">
+        <div id="content">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-2">
+                    <div class="well">
+                        <h3> Questions/Answers </h3>
+                        <div id="count_qa" class="pull-right"> 
+                            {{count_data}} Questions
+                        </div>
+                        <hr>
+                        <form action="/" method="POST">
+                                <div class="form-group">
+                                    {% csrf_token %}
+                                     <label for="name">Question</label>
+                                        <textarea class="form-control" rows="4" id="question" name="question" ></textarea>       
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Answer</label>
+                                    <textarea class="form-control" rows="4" id="answers" name="answers" ></textarea>
+                                </div>
+                                <input type="hidden" value="{{tpc.id}}" id="topic_id" name="topic_id" />
+                                <hr>
+                                <button type="button" id="next" class="btn btn-primary">NEXT</button>
+                                                        </form>
+                            </div>
+ 
+                </div>
+            </div>
+        </div>
+    </div>
+	<div id="footer">
+		<div class="container">
+            <hr>
+			<b> <center>&copy 2014 ALLAYSKY. All Rights Reserved</center> </b>
+			
+		</div>
+	</div>
+	
+</body>
+</html>

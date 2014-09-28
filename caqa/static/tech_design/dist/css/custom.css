@@ -1,0 +1,97 @@
+#header{
+    background:black;
+    color:black;
+    height:60px;
+}
+
+
+body{
+
+}
+#footer{
+    
+    color:#aeaeae;;
+    height:30px;
+    width:100%;
+
+}
+
+#header h1{ 
+    margin-top:5px;
+    font-family:fb;
+    font-size: 50px;
+    color:white;
+    
+}
+
+#form_con{
+    padding-top:50px;
+}
+
+#topic_form{
+    padding-top:25px;
+
+}
+
+#sub_topic_group{
+}
+
+#st_btn{
+    background:#A8A8A8 ;
+    border-color:#787878 
+
+}
+
+#qdiv{
+    display:inline;
+}
+#qmark{
+    font-size:20px;
+    width:5%;
+    float:left;
+}
+
+#q_area{
+    font-size:22px;
+    font-family: Verdana;
+    width:90%;
+}
+#q_inline{
+    display:inline;
+}
+
+
+#disp_qarea{
+    font-size:24px;
+    font-family: Verdana;
+}
+
+#ht{
+    color:orange;
+}
+#disp_aarea{
+    font-size:22px;
+    font-family: Verdana;
+
+}
+
+hr #ht{
+
+    color:red;
+    height:150%;
+}
+#res_area{
+    padding-top:15px;
+}
+#amark{
+    margin-top: 25px;
+    font-size:20px;
+}
+
+
+@font-face{
+font-family:fb;
+src:url('/static/tech_design/dist/fonts/FlyBoyBB.ttf');
+}
+
+
