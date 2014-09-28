@@ -18,8 +18,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'new_caqa',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -184,8 +184,8 @@ ACCOUNT_ACTIVATION_DAYS = 7
 
 DEFAULT_FROM_EMAIL = 'codesapce@allaysky.com'
 
-GOOGLE_CONSUMER_KEY          = '62227573376-sicfv0v70jfiig1h3u1c6p67qu96vv23.apps.googleusercontent.com'
-GOOGLE_CONSUMER_SECRET       = 'nXeKu9ZHqcQo0qhmGBVH0U4v'
+GOOGLE_CONSUMER_KEY          = '--'
+GOOGLE_CONSUMER_SECRET       = '--'
 
 
 LOGIN_URL          = '/' 
